@@ -1,0 +1,22 @@
+import qrcode
+from tkinter import *
+
+def generate_qr_code():
+    data = entry.get()
+    qr = qrcode.make(data)
+    qr.save("qrcode.png")
+    qr.show()
+
+root = Tk()
+root.title("QR Code Generator")
+
+label = Label(root, text="Enter Data:")
+label.pack()
+
+entry = Entry(root)
+entry.pack()
+
+button = Button(root, text="Generate QR Code", command=generate_qr_code)
+button.pack()
+
+root.mainloop()
